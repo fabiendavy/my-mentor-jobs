@@ -26,16 +26,14 @@ class TeachersController < ApplicationController
         @teacher = Teacher.new(teacher_params)
         if @teacher.save
           export_teachers_to_json
-          skill = Skill.new(teacher: @teacher, field: @field, level: @level)
-          skill.save
+          create_new_skill
         else
           render :new
           break
         end
       else
         export_teachers_to_json
-        skill = Skill.new(teacher: @teacher, field: @field, level: @level)
-        skill.save
+        create_new_skill
       end
       if params["teacher"]["levels_attributes"].keys.length == index + 1
         redirect_to teachers_path
@@ -63,6 +61,11 @@ class TeachersController < ApplicationController
     File.open('datatest.json', 'wb') do |file|
       file.write(JSON.generate(@data))
     end
+  end
+
+  def create_new_skill
+    skill = Skill.new(teacher: @teacher, field: @field, level: @level)
+    skill.save
   end
 
 end
