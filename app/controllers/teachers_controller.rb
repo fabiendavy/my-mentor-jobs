@@ -25,6 +25,7 @@ class TeachersController < ApplicationController
       if @teacher.nil?
         @teacher = Teacher.new(teacher_params)
         if @teacher.save
+          export_teachers_to_json
           skill = Skill.new(teacher: @teacher, field: @field, level: @level)
           skill.save
         else
@@ -32,6 +33,7 @@ class TeachersController < ApplicationController
           break
         end
       else
+        export_teachers_to_json
         skill = Skill.new(teacher: @teacher, field: @field, level: @level)
         skill.save
       end
@@ -45,12 +47,22 @@ class TeachersController < ApplicationController
     @teacher = Teacher.find(params[:id])
     @teacher.destroy
     redirect_to teachers_path
+    export_teachers_to_json
   end
 
   private
 
   def teacher_params
     params.require(:teacher).permit(:first_name, :last_name)
+  end
+
+  def export_teachers_to_json
+    @data = JSON.parse(File.read('datatest.json'))
+    @data["teachers"] = []
+    Teacher.all.each_with_object([]) { |teacher| @data["teachers"] << { id: teacher["id"], first_name: teacher["first_name"], last_name: teacher["last_name"] } }
+    File.open('datatest.json', 'wb') do |file|
+      file.write(JSON.generate(@data))
+    end
   end
 
 end
