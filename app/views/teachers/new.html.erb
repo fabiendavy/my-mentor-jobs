@@ -1,0 +1,28 @@
+<%= simple_form_for(@teacher) do |f| %>
+  <h3>New teacher</h3>
+  <%= f.input :first_name %>
+  <%= f.input :last_name %>
+
+  <h3>Skills</h3>
+
+  <div id="skills">
+    <div class="form-row">
+      <div class="col-md-6">
+        <%= f.simple_fields_for :fields do |field_form| %>
+          <%= field_form.input :name, collection: @fields %>
+        <% end %>
+      </div>
+
+      <div class="col-md-6">
+        <%= f.simple_fields_for :levels do |level_form| %>
+          <%= level_form.input :cycle, collection: @levels, label: 'Level' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+
+  <button id="add-skill-btn" class="btn btn-secondary mb-3">Add a skill</button> <br>
+
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>
