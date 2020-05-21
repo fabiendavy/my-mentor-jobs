@@ -35,9 +35,7 @@ class TeachersController < ApplicationController
         export_teachers_to_json
         create_new_skill
       end
-      if params["teacher"]["levels_attributes"].keys.length == index + 1
-        redirect_to teachers_path
-      end
+      redirect_to teachers_path if params["teacher"]["levels_attributes"].keys.length == index + 1
     end
   end
 
@@ -58,9 +56,7 @@ class TeachersController < ApplicationController
     @data = JSON.parse(File.read('datatest.json'))
     @data["teachers"] = []
     Teacher.all.each_with_object([]) { |teacher| @data["teachers"] << { id: teacher["id"], first_name: teacher["first_name"], last_name: teacher["last_name"] } }
-    File.open('datatest.json', 'wb') do |file|
-      file.write(JSON.generate(@data))
-    end
+    File.open('datatest.json', 'wb') { |file| file.write(JSON.generate(@data)) }
   end
 
   def create_new_skill

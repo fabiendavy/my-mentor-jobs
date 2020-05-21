@@ -26,7 +26,7 @@ class RequestsController < ApplicationController
     @request.level = @level
     
     if @request.save
-      export_teachers_to_json
+      export_requests_to_json
       redirect_to edit_request_path(@request)
     else
       render :new
@@ -42,13 +42,13 @@ class RequestsController < ApplicationController
 
   def update
     @request.update_column(:teacher_id, params[:teacher_id])
-    export_teachers_to_json
+    export_requests_to_json
     redirect_to request_path(@request)
   end
 
   def destroy
     @request.destroy
-    export_teachers_to_json
+    export_requests_to_json
     redirect_to requests_path
   end
   
@@ -62,7 +62,7 @@ class RequestsController < ApplicationController
     params.require(:request).permit(:client_name)
   end
 
-  def export_teachers_to_json
+  def export_requests_to_json
     @data = JSON.parse(File.read('datatest.json'))
     @data["requests"] = []
     Request.all.each_with_object([]) do |request|
@@ -72,8 +72,6 @@ class RequestsController < ApplicationController
         @data["requests"] << { id: request["id"], client_name: request["client_name"], field: request.field["name"], grade: request.level["grade"], cycle: request.level["cycle"] }
       end
     end
-    File.open('datatest.json', 'wb') do |file|
-      file.write(JSON.generate(@data))
-    end
+    File.open('datatest.json', 'wb') { |file| file.write(JSON.generate(@data)) }
   end
 end
