@@ -14113,3 +14113,15 @@ Processing by TeachersController#index as HTML
 Completed 200 OK in 46ms (Views: 40.9ms | ActiveRecord: 0.5ms | Allocations: 12013)
 
 
+Started GET "/teachers/new" for ::1 at 2020-05-21 12:52:42 +0200
+Processing by TeachersController#new as HTML
+  [1m[36mField Load (0.3ms)[0m  [1m[34mSELECT "fields".* FROM "fields"[0m
+  ↳ app/controllers/teachers_controller.rb:12:in `each_with_object'
+  [1m[36mLevel Load (0.4ms)[0m  [1m[34mSELECT "levels".* FROM "levels"[0m
+  ↳ app/controllers/teachers_controller.rb:13:in `each_with_object'
+  Rendering teachers/new.html.erb within layouts/application
+  Rendered teachers/new.html.erb within layouts/application (Duration: 21.3ms | Allocations: 8727)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 68ms (Views: 37.4ms | ActiveRecord: 0.7ms | Allocations: 22077)
+
+
