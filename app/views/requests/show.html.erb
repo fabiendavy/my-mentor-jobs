@@ -1,0 +1,13 @@
+<h1><%= @request.client_name %></h1>
+<p>
+  Field: <br>
+  <%= @request.field.name %> <br>
+  <br>
+  Level: <br>
+  <%= @request.level.grade %> - <%= @request.level.cycle %><br>
+  <br>
+  Teacher: <br>
+  <%= "#{@request.teacher.first_name} #{@request.teacher.last_name}" %>
+</p>
+
+<%= link_to "See all requests", requests_path, class: 'mb-4' %> <br>

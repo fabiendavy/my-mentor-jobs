@@ -1,0 +1,17 @@
+<% if @matching_teachers.count == 0 %>
+  <p>Sorry no teacher meets your expectations</p>
+  <% @request.destroy %>
+  <%= link_to "Back", new_request_path, class: 'btn btn-info mb-4' %> <br>
+<% else %>
+<h5 class="text-center mb-4">Here are the available teachers ready to help you with the <%= @request.field.name.capitalize %>, <%= @request.level.grade %> grade :</h5>
+  <ul>
+    <% @matching_teachers.each do |teacher| %>
+      <li class="mb-3">
+        <%= teacher.first_name.capitalize %> <%= teacher.last_name.capitalize %> <br>
+        <%= link_to "Choose #{teacher.first_name.capitalize}", request_path(@request, teacher_id: teacher.id), method: :put %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+

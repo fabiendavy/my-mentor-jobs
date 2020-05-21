@@ -1,3 +1,6 @@
+<%= link_to "See all teachers", teachers_path, class: 'mb-4' %>
+<%= link_to "See all requests", requests_path, class: 'mb-4' %> <br>
+
 <%= simple_form_for(@teacher) do |f| %>
   <h3>New teacher</h3>
   <%= f.input :first_name %>
@@ -26,3 +29,5 @@
 
   <%= f.submit class: 'btn btn-primary' %>
 <% end %>
+
+

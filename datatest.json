@@ -19,8 +19,33 @@
     "id": 8,
     "first_name": "Sheldon",
     "last_name": "Cooper"
+  }, {
+    "id": 10,
+    "first_name": "Peter",
+    "last_name": "Pan"
   }],
-  "requests": [],
+  "requests": [{
+    "id": 23,
+    "client_name": "Guillaume",
+    "field": "mathematics",
+    "grade": "6th",
+    "cycle": "middle",
+    "teacher": "Fabien Davy"
+  }, {
+    "id": 25,
+    "client_name": "Mike",
+    "field": "english",
+    "grade": "9th",
+    "cycle": "high",
+    "teacher": "Fabien Davy"
+  }, {
+    "id": 29,
+    "client_name": "Michel",
+    "field": "biology",
+    "grade": "10th",
+    "cycle": "high",
+    "teacher": "Miky Mouse"
+  }],
   "fields": [{
     "id": 1,
     "name": "mathematics"

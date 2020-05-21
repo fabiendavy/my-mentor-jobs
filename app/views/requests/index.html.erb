@@ -1,0 +1,10 @@
+<%= link_to "See all teachers", teachers_path, class: 'mb-4' %> <br>
+<%= link_to "Add a new request", new_request_path, class: 'btn btn-info mb-4' %> <br>
+
+<% @requests.each do |request| %>
+  <p>
+    <%= link_to "#{request.client_name}'s request", request_path(request) %>
+    <%= link_to "ⓧ", request_path(request), method: :delete, data: { confirm: 'Sure?' }, remote: true %>
+  </p>
+<% end %>
+

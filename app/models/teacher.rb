@@ -1,5 +1,6 @@
 class Teacher < ApplicationRecord
   has_many :skills, dependent: :destroy
+  has_many :requests, dependent: :destroy
   has_many :fields, through: :skills
   has_many :levels, through: :skills
 

@@ -1,0 +1,9 @@
+<%= link_to "See all requests", requests_path, class: 'mb-4' %> <br>
+
+<%= simple_form_for(@request) do |f| %>
+  <h3>New request</h3>
+  <%= f.input :client_name %>
+  <%= f.input :field, collection: @fields %>
+  <%= f.input :level, collection: @levels %>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>
