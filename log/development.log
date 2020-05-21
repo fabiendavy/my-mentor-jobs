@@ -32006,3 +32006,239 @@ Processing by RequestsController#index as HTML
 Completed 200 OK in 50ms (Views: 47.9ms | ActiveRecord: 0.6ms | Allocations: 12467)
 
 
+Started GET "/" for ::1 at 2020-05-21 18:56:55 +0200
+  [1m[35m (6.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TeachersController#index as HTML
+  Rendering teachers/index.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "teachers"[0m
+  ↳ app/views/teachers/index.html.erb:4
+  [1m[36mTeacher Load (0.3ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers"[0m
+  ↳ app/views/teachers/index.html.erb:9
+  [1m[36mSkill Load (0.5ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."teacher_id" = $1[0m  [["teacher_id", 1]]
+  ↳ app/views/teachers/index.html.erb:15
+  [1m[36mField Load (0.6ms)[0m  [1m[34mSELECT "fields".* FROM "fields" WHERE "fields"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/teachers/index.html.erb:17
+  [1m[36mLevel Load (0.6ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/teachers/index.html.erb:17
+  [1m[36mField Load (0.3ms)[0m  [1m[34mSELECT "fields".* FROM "fields" WHERE "fields"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/teachers/index.html.erb:17
+  [1m[36mLevel Load (0.2ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/teachers/index.html.erb:17
+  [1m[36mField Load (0.2ms)[0m  [1m[34mSELECT "fields".* FROM "fields" WHERE "fields"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/teachers/index.html.erb:17
+  [1m[36mLevel Load (0.3ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/teachers/index.html.erb:17
+  [1m[36mField Load (0.3ms)[0m  [1m[34mSELECT "fields".* FROM "fields" WHERE "fields"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/teachers/index.html.erb:17
+  [1m[36mCACHE Level Load (0.0ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/teachers/index.html.erb:17
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."teacher_id" = $1[0m  [["teacher_id", 2]]
+  ↳ app/views/teachers/index.html.erb:15
+  [1m[36mCACHE Field Load (0.0ms)[0m  [1m[34mSELECT "fields".* FROM "fields" WHERE "fields"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/teachers/index.html.erb:17
+  [1m[36mLevel Load (0.3ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/teachers/index.html.erb:17
+  [1m[36mCACHE Field Load (0.0ms)[0m  [1m[34mSELECT "fields".* FROM "fields" WHERE "fields"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/teachers/index.html.erb:17
+  [1m[36mCACHE Level Load (0.0ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/teachers/index.html.erb:17
+  [1m[36mCACHE Field Load (0.0ms)[0m  [1m[34mSELECT "fields".* FROM "fields" WHERE "fields"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/teachers/index.html.erb:17
+  [1m[36mCACHE Level Load (0.0ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/teachers/index.html.erb:17
+  [1m[36mField Load (0.3ms)[0m  [1m[34mSELECT "fields".* FROM "fields" WHERE "fields"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/teachers/index.html.erb:17
+  [1m[36mLevel Load (0.2ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/teachers/index.html.erb:17
+  [1m[36mSkill Load (0.4ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."teacher_id" = $1[0m  [["teacher_id", 3]]
+  ↳ app/views/teachers/index.html.erb:15
+  [1m[36mCACHE Field Load (0.0ms)[0m  [1m[34mSELECT "fields".* FROM "fields" WHERE "fields"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/teachers/index.html.erb:17
+  [1m[36mCACHE Level Load (0.0ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/teachers/index.html.erb:17
+  [1m[36mCACHE Field Load (0.0ms)[0m  [1m[34mSELECT "fields".* FROM "fields" WHERE "fields"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/teachers/index.html.erb:17
+  [1m[36mCACHE Level Load (0.0ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/views/teachers/index.html.erb:17
+  [1m[36mSkill Load (0.3ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."teacher_id" = $1[0m  [["teacher_id", 4]]
+  ↳ app/views/teachers/index.html.erb:15
+  [1m[36mCACHE Field Load (0.0ms)[0m  [1m[34mSELECT "fields".* FROM "fields" WHERE "fields"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/teachers/index.html.erb:17
+  [1m[36mCACHE Level Load (0.0ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/teachers/index.html.erb:17
+  [1m[36mCACHE Field Load (0.0ms)[0m  [1m[34mSELECT "fields".* FROM "fields" WHERE "fields"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/teachers/index.html.erb:17
+  [1m[36mLevel Load (0.3ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/teachers/index.html.erb:17
+  [1m[36mCACHE Field Load (0.0ms)[0m  [1m[34mSELECT "fields".* FROM "fields" WHERE "fields"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/teachers/index.html.erb:17
+  [1m[36mCACHE Level Load (0.0ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/teachers/index.html.erb:17
+  [1m[36mCACHE Field Load (0.0ms)[0m  [1m[34mSELECT "fields".* FROM "fields" WHERE "fields"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/teachers/index.html.erb:17
+  [1m[36mCACHE Level Load (0.0ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/teachers/index.html.erb:17
+  [1m[36mSkill Load (0.4ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."teacher_id" = $1[0m  [["teacher_id", 5]]
+  ↳ app/views/teachers/index.html.erb:15
+  [1m[36mCACHE Field Load (0.0ms)[0m  [1m[34mSELECT "fields".* FROM "fields" WHERE "fields"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/views/teachers/index.html.erb:17
+  [1m[36mCACHE Level Load (0.0ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/teachers/index.html.erb:17
+  [1m[36mCACHE Field Load (0.0ms)[0m  [1m[34mSELECT "fields".* FROM "fields" WHERE "fields"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/teachers/index.html.erb:17
+  [1m[36mCACHE Level Load (0.0ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/teachers/index.html.erb:17
+  [1m[36mCACHE Field Load (0.0ms)[0m  [1m[34mSELECT "fields".* FROM "fields" WHERE "fields"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/views/teachers/index.html.erb:17
+  [1m[36mCACHE Level Load (0.0ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/teachers/index.html.erb:17
+  Rendered teachers/index.html.erb within layouts/application (Duration: 168.6ms | Allocations: 53086)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 324ms (Views: 286.5ms | ActiveRecord: 21.0ms | Allocations: 97296)
+
+
+Started GET "/requests" for ::1 at 2020-05-21 18:57:00 +0200
+Processing by RequestsController#index as HTML
+  Rendering requests/index.html.erb within layouts/application
+Started GET "/requests" for ::1 at 2020-05-21 18:57:00 +0200
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "requests"[0m
+  ↳ app/views/requests/index.html.erb:6
+  [1m[36mRequest Load (0.7ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  ↳ app/views/requests/index.html.erb:10
+  Rendered requests/index.html.erb within layouts/application (Duration: 37.4ms | Allocations: 7888)
+Processing by RequestsController#index as HTML
+  Rendering requests/index.html.erb within layouts/application
+  [1m[35m (2.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "requests"[0m
+  ↳ app/views/requests/index.html.erb:6
+  [1m[36mRequest Load (0.5ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  ↳ app/views/requests/index.html.erb:10
+  Rendered requests/index.html.erb within layouts/application (Duration: 8.7ms | Allocations: 2350)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 128ms (Views: 108.4ms | ActiveRecord: 6.0ms | Allocations: 32567)
+
+
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 65ms (Views: 60.6ms | ActiveRecord: 2.5ms | Allocations: 20466)
+
+
+Started GET "/requests/new" for ::1 at 2020-05-21 18:57:08 +0200
+Processing by RequestsController#new as HTML
+  [1m[36mField Load (0.8ms)[0m  [1m[34mSELECT "fields".* FROM "fields"[0m
+  ↳ app/controllers/requests_controller.rb:9:in `each_with_object'
+  [1m[36mLevel Load (0.8ms)[0m  [1m[34mSELECT "levels".* FROM "levels"[0m
+  ↳ app/controllers/requests_controller.rb:10:in `each_with_object'
+  Rendering requests/new.html.erb within layouts/application
+  Rendered requests/new.html.erb within layouts/application (Duration: 54.7ms | Allocations: 17913)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 73ms (Views: 66.4ms | ActiveRecord: 1.6ms | Allocations: 30211)
+
+
+Started POST "/requests" for ::1 at 2020-05-21 18:57:15 +0200
+Processing by RequestsController#create as HTML
+  Parameters: {"authenticity_token"=>"aYad30Pixokqfk6lVPXZCWfcQh/eaFI0wc/W4MreQ+3VlWAvUFgoOvNjFTIelPepw/7/f9pBb7Wl9DQEV40bhQ==", "request"=>{"client_name"=>"bidule", "field"=>"mathematics", "level"=>"6th-middle", "price_per_hour"=>"3"}, "commit"=>"Create Request"}
+  [1m[36mField Load (0.4ms)[0m  [1m[34mSELECT "fields".* FROM "fields" WHERE "fields"."name" = $1 LIMIT $2[0m  [["name", "mathematics"], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:21:in `create'
+  [1m[36mLevel Load (0.2ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."grade" = $1 AND "levels"."cycle" = $2 LIMIT $3[0m  [["grade", "6th"], ["cycle", "middle"], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:26:in `create'
+[31mUnpermitted parameters: :field, :level[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/requests_controller.rb:33:in `create'
+  [1m[36mRequest Create (1.4ms)[0m  [1m[32mINSERT INTO "requests" ("client_name", "field_id", "level_id", "created_at", "updated_at", "price_per_hour") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["client_name", "bidule"], ["field_id", 1], ["level_id", 1], ["created_at", "2020-05-21 16:57:15.633901"], ["updated_at", "2020-05-21 16:57:15.633901"], ["price_per_hour", 3]]
+  ↳ app/controllers/requests_controller.rb:33:in `create'
+  [1m[35m (11.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/requests_controller.rb:33:in `create'
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  ↳ app/controllers/requests_controller.rb:84:in `each_with_object'
+  [1m[36mTeacher Load (0.3ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:85:in `block in export_requests_to_json'
+  [1m[36mField Load (0.2ms)[0m  [1m[34mSELECT "fields".* FROM "fields" WHERE "fields"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:90:in `block in export_requests_to_json'
+  [1m[36mLevel Load (0.2ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:91:in `block in export_requests_to_json'
+  [1m[36mTeacher Load (0.2ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:85:in `block in export_requests_to_json'
+  [1m[36mField Load (0.2ms)[0m  [1m[34mSELECT "fields".* FROM "fields" WHERE "fields"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:90:in `block in export_requests_to_json'
+  [1m[36mLevel Load (0.2ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:91:in `block in export_requests_to_json'
+  [1m[36mCACHE Field Load (0.0ms)[0m  [1m[34mSELECT "fields".* FROM "fields" WHERE "fields"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:99:in `block in export_requests_to_json'
+  [1m[36mCACHE Level Load (0.0ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:100:in `block in export_requests_to_json'
+Redirected to http://localhost:3000/requests/14/edit
+Completed 302 Found in 39ms (ActiveRecord: 15.2ms | Allocations: 12890)
+
+
+Started GET "/requests/14/edit" for ::1 at 2020-05-21 18:57:15 +0200
+Processing by RequestsController#edit as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mRequest Load (0.4ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:74:in `set_request'
+  [1m[36mField Load (0.4ms)[0m  [1m[34mSELECT "fields".* FROM "fields" WHERE "fields"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:43:in `edit'
+  [1m[36mLevel Load (0.3ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:44:in `edit'
+  [1m[36mSkill Load (0.5ms)[0m  [1m[34mSELECT "skills".* FROM "skills" WHERE "skills"."field_id" = $1 AND "skills"."level_id" = $2[0m  [["field_id", 1], ["level_id", 1]]
+  ↳ app/controllers/requests_controller.rb:47:in `collect'
+  [1m[36mTeacher Load (0.3ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:47:in `block in edit'
+  [1m[36mTeacher Load (0.3ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:47:in `block in edit'
+  Rendering requests/edit.html.erb within layouts/application
+  Rendered requests/edit.html.erb within layouts/application (Duration: 1.8ms | Allocations: 656)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 32ms (Views: 17.6ms | ActiveRecord: 2.1ms | Allocations: 16183)
+
+
+Started PUT "/requests/14?teacher_id=1" for ::1 at 2020-05-21 18:57:17 +0200
+Processing by RequestsController#update as HTML
+  Parameters: {"authenticity_token"=>"Xe99l/fQ9z0DS7ffNNaR7yvLIGuNp2ItKLXrhamnwWGGWLh/2vh9iT4djLkZ4OLuI349BGhVv3W/6q4ZziM3sA==", "teacher_id"=>"1", "id"=>"14"}
+  [1m[36mRequest Load (0.3ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:74:in `set_request'
+  [1m[36mRequest Update (6.4ms)[0m  [1m[33mUPDATE "requests" SET "teacher_id" = $1 WHERE "requests"."id" = $2[0m  [["teacher_id", 1], ["id", 14]]
+  ↳ app/controllers/requests_controller.rb:54:in `update'
+  [1m[36mRequest Load (0.5ms)[0m  [1m[34mSELECT "requests".* FROM "requests"[0m
+  ↳ app/controllers/requests_controller.rb:84:in `each_with_object'
+  [1m[36mTeacher Load (0.4ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:85:in `block in export_requests_to_json'
+  [1m[36mField Load (0.3ms)[0m  [1m[34mSELECT "fields".* FROM "fields" WHERE "fields"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:90:in `block in export_requests_to_json'
+  [1m[36mLevel Load (0.5ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:91:in `block in export_requests_to_json'
+  [1m[36mTeacher Load (0.3ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:85:in `block in export_requests_to_json'
+  [1m[36mField Load (0.5ms)[0m  [1m[34mSELECT "fields".* FROM "fields" WHERE "fields"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:90:in `block in export_requests_to_json'
+  [1m[36mLevel Load (0.3ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:91:in `block in export_requests_to_json'
+  [1m[36mCACHE Teacher Load (0.0ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:85:in `block in export_requests_to_json'
+  [1m[36mCACHE Field Load (0.0ms)[0m  [1m[34mSELECT "fields".* FROM "fields" WHERE "fields"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:90:in `block in export_requests_to_json'
+  [1m[36mCACHE Level Load (0.0ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:91:in `block in export_requests_to_json'
+Redirected to http://localhost:3000/requests/14
+Completed 302 Found in 27ms (ActiveRecord: 9.5ms | Allocations: 9377)
+
+
+Started GET "/requests/14" for ::1 at 2020-05-21 18:57:17 +0200
+Processing by RequestsController#show as HTML
+  Parameters: {"id"=>"14"}
+  [1m[36mRequest Load (0.5ms)[0m  [1m[34mSELECT "requests".* FROM "requests" WHERE "requests"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/requests_controller.rb:74:in `set_request'
+  [1m[36mCourse Load (0.5ms)[0m  [1m[34mSELECT "courses".* FROM "courses" WHERE "courses"."request_id" = $1[0m  [["request_id", 14]]
+  ↳ app/controllers/requests_controller.rb:70:in `compute_courses_price'
+  Rendering requests/show.html.erb within layouts/application
+  [1m[36mField Load (0.4ms)[0m  [1m[34mSELECT "fields".* FROM "fields" WHERE "fields"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/requests/show.html.erb:7
+  [1m[36mLevel Load (0.3ms)[0m  [1m[34mSELECT "levels".* FROM "levels" WHERE "levels"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/requests/show.html.erb:10
+  [1m[36mTeacher Load (0.3ms)[0m  [1m[34mSELECT "teachers".* FROM "teachers" WHERE "teachers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/requests/show.html.erb:13
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "courses" WHERE "courses"."request_id" = $1[0m  [["request_id", 14]]
+  ↳ app/views/requests/show.html.erb:17
+  Rendered requests/show.html.erb within layouts/application (Duration: 29.0ms | Allocations: 9022)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 77ms (Views: 43.6ms | ActiveRecord: 9.9ms | Allocations: 27162)
+
+

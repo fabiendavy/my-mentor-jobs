@@ -84,10 +84,21 @@ class RequestsController < ApplicationController
     Request.all.each_with_object([]) do |request|
       if request.teacher
         # if the teacher has been chosen we rewrite the request in the json with the teacher
-        data["requests"] << { id: request["id"], client_name: request["client_name"], field: request.field["name"], grade: request.level["grade"], cycle: request.level["cycle"], teacher: "#{request.teacher["first_name"]} #{request.teacher["last_name"]}" }
+        data["requests"] << { 
+          id: request["id"], 
+          client_name: request["client_name"], 
+          field: request.field["name"], 
+          grade: request.level["grade"], 
+          cycle: request.level["cycle"], 
+          teacher: "#{request.teacher["first_name"]} #{request.teacher["last_name"]}" }
       else
         # we write in the json file without the teacher when the request is just created but the teacher is not yet chosen
-        data["requests"] << { id: request["id"], client_name: request["client_name"], field: request.field["name"], grade: request.level["grade"], cycle: request.level["cycle"] }
+        data["requests"] << { 
+          id: request["id"], 
+          client_name: request["client_name"], 
+          field: request.field["name"], 
+          grade: request.level["grade"], 
+          cycle: request.level["cycle"] }
       end
     end
     File.open('data.json', 'wb') { |file| file.write(JSON.generate(data)) }

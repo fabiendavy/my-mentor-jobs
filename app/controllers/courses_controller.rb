@@ -27,7 +27,11 @@ class CoursesController < ApplicationController
   def export_courses_to_json
     data = JSON.parse(File.read('data.json'))
     data["courses"] = []
-    Course.all.each_with_object([]) { |course| data["courses"] << { id: course["id"], date: course["date"], length: course["length"], request_id: course.request["id"] } }
+    Course.all.each_with_object([]) { |course| data["courses"] << { 
+      id: course["id"], 
+      date: course["date"], 
+      length: course["length"], 
+      request_id: course.request["id"] } }
     File.open('data.json', 'wb') { |file| file.write(JSON.generate(data)) }
   end
 end
