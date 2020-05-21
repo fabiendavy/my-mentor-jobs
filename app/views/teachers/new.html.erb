@@ -1,13 +1,13 @@
-<%= link_to "See all teachers", teachers_path, class: 'mb-4' %>
-<%= link_to "See all requests", requests_path, class: 'mb-4' %> <br>
-
-<%= simple_form_for(@teacher) do |f| %>
+<%= link_to "See all teachers", teachers_path, class: 'mb-4' %> <br>
+<br>
+<%= simple_form_for(@teacher ||= Teacher.new) do |f| %>
   <h3>New teacher</h3>
   <%= f.input :first_name %>
   <%= f.input :last_name %>
 
   <h3>Skills</h3>
 
+  <!-- we make nested form to link the skills directly to the teacher that we are creating -->
   <div id="skills">
     <div class="form-row">
       <div class="col-md-6">
@@ -24,7 +24,7 @@
     </div>
   </div>
 
-
+  <!-- add new set of field & level with JS if a teacher has more than one skill -->
   <button id="add-skill-btn" class="btn btn-secondary mb-3">Add a skill</button> <br>
 
   <%= f.submit class: 'btn btn-primary' %>

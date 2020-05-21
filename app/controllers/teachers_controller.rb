@@ -1,5 +1,3 @@
-require 'json'
-
 class TeachersController < ApplicationController
   def index
     @teachers = Teacher.all
@@ -14,27 +12,39 @@ class TeachersController < ApplicationController
   end
 
   def create
+    # we iterate over the levels to create a new skill with each field and level
     params["teacher"]["levels_attributes"].keys.each_with_index do |key, index|
+      # we look for the corresponding field
       @field = Field.find_by(name: params["teacher"]["fields_attributes"]["#{key}"]["name"])
-
+      
+      # we look for the corresponding level
       level_elements = params["teacher"]["levels_attributes"]["#{key}"]["cycle"]
       level_elements = level_elements.split('-')
       @level = Level.find_by(grade: level_elements[0], cycle: level_elements[1])
 
+      # the first iteration, we create a teacher, and for the others we look for the one we just created previously
       @teacher = Teacher.find_by(first_name: params["teacher"]["first_name"], last_name: params["teacher"]["last_name"])
-      if @teacher.nil?
-        @teacher = Teacher.new(teacher_params)
-        if @teacher.save
-          export_teachers_to_json
-          create_new_skill
+
+      # we take care to have a field and a level before to save a new teacher, to be sure that we don't save a teacher without skill(s)
+      if @field && @level
+        if @teacher.nil?
+          @teacher = Teacher.new(teacher_params)
+          if @teacher.save
+            create_new_skill
+            export_teachers_to_json
+          else
+            render :new
+            break
+          end
         else
-          render :new
-          break
+          create_new_skill
+          export_teachers_to_json
         end
       else
-        export_teachers_to_json
-        create_new_skill
+        render :new
+        break
       end
+      # when the last skill is created we redirect to the teachers index
       redirect_to teachers_path if params["teacher"]["levels_attributes"].keys.length == index + 1
     end
   end
@@ -53,15 +63,29 @@ class TeachersController < ApplicationController
   end
 
   def export_teachers_to_json
-    @data = JSON.parse(File.read('datatest.json'))
-    @data["teachers"] = []
-    Teacher.all.each_with_object([]) { |teacher| @data["teachers"] << { id: teacher["id"], first_name: teacher["first_name"], last_name: teacher["last_name"] } }
-    File.open('datatest.json', 'wb') { |file| file.write(JSON.generate(@data)) }
+    data = JSON.parse(File.read('data.json'))
+    data["teachers"] = []
+    Teacher.all.each_with_object([]) { |teacher|
+      # we create an array of objects for each skill for each teacher
+      skills = Skill.where(teacher: teacher).each_with_object([]) { |skill, arr| arr << {
+        id: skill[:id],
+        field: skill.field["name"], 
+        grade: skill.level["grade"], 
+        cycle: skill.level["cycle"]
+      } }
+      
+      data["teachers"] << { 
+        id: teacher["id"], 
+        first_name: teacher["first_name"], 
+        last_name: teacher["last_name"], 
+        skills: skills
+      } 
+    }
+    File.open('data.json', 'wb') { |file| file.write(JSON.generate(data)) }
   end
 
   def create_new_skill
     skill = Skill.new(teacher: @teacher, field: @field, level: @level)
     skill.save
   end
-
 end

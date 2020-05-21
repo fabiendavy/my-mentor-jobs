@@ -1,13 +1,46 @@
 <h1><%= @request.client_name %></h1>
 <p>
+  Price per hour: <br>
+  - <%= @request.price_per_hour %>€ <br>
+  <br>
   Field: <br>
-  <%= @request.field.name %> <br>
+  - <%= @request.field.name.capitalize %> <br>
   <br>
   Level: <br>
-  <%= @request.level.grade %> - <%= @request.level.cycle %><br>
+  - <%= @request.level.grade %> - <%= @request.level.cycle %><br>
   <br>
   Teacher: <br>
-  <%= "#{@request.teacher.first_name} #{@request.teacher.last_name}" %>
+  - <%= "#{@request.teacher.first_name} #{@request.teacher.last_name}" %> <br>
+  <br>
 </p>
+
+<% if @request.courses.count > 0 %>
+  Scheduled courses :
+  <div class="ml-4">
+    <% @request.courses.each_with_index do |course, index| %>
+      n° <%= index + 1 %> : <%= course.date.strftime('%d %b %Y') %>, for <%= course.length %> <%= course.length > 1 ? 'hours' : 'hour' %> 
+      (<%= @request.price_per_hour * course.length %> €) - 
+      <%= link_to "Cancel", course_path(course), method: :delete, data: { confirm: 'Do you really want to cancel this course ?' }, remote: true %> <br>
+    <% end %>
+  </div>
+  <br>
+  Total price : <%= @total_price %> €
+  <br><br>
+<% end %>
+
+<hr>
+<%= simple_form_for([@request, @course], remote: true) do |f| %>
+  <h5>Register a new course below</h5>
+  <div class="form-row">
+    <div class="col-md-6">
+      <%= f.input :date, html5: true %>
+    </div>
+    <div class="col-md-6">
+      <%= f.input :length, label: 'How long ? (in hours)' %>
+    </div>
+  </div>
+  <%= f.submit "Book a course", class: 'btn btn-primary' %>
+<% end %>
+<hr>
 
 <%= link_to "See all requests", requests_path, class: 'mb-4' %> <br>

@@ -1,6 +1,20 @@
+<!-- we show the form if a client want to edit a request -->
+<% if params[:edit_request] == 'edit' %>
+  <%= simple_form_for(@request) do |f| %>
+    <h3>Modify request</h3>
+    <%= f.input :client_name %>
+    <%= f.input :field, input_html: { value: @field.name } %>
+    <%= f.input :level, input_html: { value: "#{@level.grade}-#{@level.cycle}" } %>
+    <%= f.input :price_per_hour, input_html: { min: 0 } %>
+    <%= f.submit class: 'btn btn-primary' %>
+  <% end %>
+<% end %>
+<br>
+
+<!-- when a client just created a request, we show him all the available teachers -->
 <% if @matching_teachers.count == 0 %>
   <p>Sorry no teacher meets your expectations</p>
-  <% @request.destroy %>
+  <% @request.destroy %>   <!-- if there is no teacher, we destroy the current request -->
   <%= link_to "Back", new_request_path, class: 'btn btn-info mb-4' %> <br>
 <% else %>
 <h5 class="text-center mb-4">Here are the available teachers ready to help you with the <%= @request.field.name.capitalize %>, <%= @request.level.grade %> grade :</h5>

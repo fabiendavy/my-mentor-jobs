@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_21_091732) do
+ActiveRecord::Schema.define(version: 2020_05_21_132001) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "courses", force: :cascade do |t|
+    t.integer "length"
+    t.date "date"
+    t.bigint "request_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["request_id"], name: "index_courses_on_request_id"
+  end
 
   create_table "fields", force: :cascade do |t|
     t.string "name"
@@ -35,6 +44,7 @@ ActiveRecord::Schema.define(version: 2020_05_21_091732) do
     t.bigint "teacher_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "price_per_hour"
     t.index ["field_id"], name: "index_requests_on_field_id"
     t.index ["level_id"], name: "index_requests_on_level_id"
     t.index ["teacher_id"], name: "index_requests_on_teacher_id"
@@ -58,6 +68,7 @@ ActiveRecord::Schema.define(version: 2020_05_21_091732) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "courses", "requests"
   add_foreign_key "requests", "fields"
   add_foreign_key "requests", "levels"
   add_foreign_key "requests", "teachers"

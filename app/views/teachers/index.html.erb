@@ -1,14 +1,16 @@
+<%= link_to "See all requests", requests_path, class: 'mb-4' %> <br>
 <%= link_to "Add a new teacher", new_teacher_path, class: 'btn btn-danger mb-4' %>
-<%= link_to "Add a new request", new_request_path, class: 'btn btn-info mb-4' %> <br>
 
 <% if @teachers.count == 0 %>
   <p>No teachers registered yet</p>
 <% else %>
+  <h2>Teachers</h2>
+  <hr>
   <% @teachers.each do |teacher| %>
-    <h2 style="display: inline;"><%= teacher.first_name.capitalize %> <%= teacher.last_name.capitalize %></h2> <%= link_to "🗑", teacher_path(teacher), method: :delete, data: { confirm: 'Sure?'} %>
+    <h4 style="display: inline;"><%= teacher.first_name.capitalize %> <%= teacher.last_name.capitalize %></h4> <%= link_to "🗑", teacher_path(teacher), method: :delete, data: { confirm: 'Sure?'}, remote: true %>
 
     <div class="skills m-3">
-      <h4>Skills :</h4>
+      <h5>Skills :</h5>
       <% skills = Skill.where(teacher: teacher) %>
       <% skills.each do |skill| %>
         <div class="skill-unit mx-3">
@@ -16,8 +18,7 @@
         </div>
       <% end %>
     </div>
-
+    <hr>
   <% end %>
 <% end %>
 
-<%= link_to "See all requests", requests_path, class: 'mb-4' %> <br>
